@@ -22,4 +22,10 @@ jobs:
           - name: Executando os testes
             run: |
               robot --outputdir results/ .
+
+          - name: Resultado dos Testes
+            uses: actions/upload-artifact@v4
+            with:
+                name: resultado-testes
+                path: results
             
