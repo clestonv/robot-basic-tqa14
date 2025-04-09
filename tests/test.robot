@@ -3,7 +3,7 @@ Documentation    Configuração inicais do projeto
 
 ## Importando as Bibliotecas
 Library    RequestsLibrary
-Library    libs/get_fake_person.py
+Library    ../resources/libs/get_fake_person.py
 
 *** Variables ***
 ${baseUrl}    https://develop.qacoders-academy.com.br/api/
