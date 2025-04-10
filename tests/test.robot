@@ -11,7 +11,7 @@ ${baseUrl}    https://develop.qacoders-academy.com.br/api/
 *** Test Cases ***
 # REQUEST POST
 CT01 - Realizar login com sucesso
-    ${resposta}    Realizar Login    email=sysadmin@qacoders.com    password=1234@Test
+    ${resposta}    Realizar Login    email=sysadmin@qacoders.com  password=1234@Test
     Status Should Be    200    ${resposta}
     
 CT02 - Realizar login com senha Inválida
