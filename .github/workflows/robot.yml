@@ -1,6 +1,6 @@
 name: Robot Testes
 
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
     tests:
