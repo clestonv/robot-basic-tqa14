@@ -1,0 +1,65 @@
+name: Robot Testes
+
+on: [push, workflow_dispatch]
+
+jobs:
+    tests:
+        name: Testes Robot Framework
+        runs-on: ubuntu-24.04
+
+        steps:
+          - name: Clonando o projeto para a maquina virtual
+            uses: actions/checkout@v4
+
+          - name: Configurando o Python na maquina virtual
+            uses: actions/setup-python@v5
+          
+          - name: Instalação das dependencias
+            run: |            
+              pip install robotframework
+              pip install robotframework-requests
+
+          - name: Executando os testes
+            run: |
+              robot --outputdir results/ .
+
+          - name: Resultado dos Testes
+            uses: actions/upload-artifact@v4
+            if: always()
+            with:
+                name: resultado-testes
+                path: results
+
+    report:
+        name: Report Tests 🌐
+        runs-on: ubuntu-24.04
+        if: always()
+    
+        permissions:
+          contents: read
+          pages: write
+          id-token: write
+        environment:
+          name: github-pages
+          url: https://clestonv.github.io/dojo-robot-2/index.html
+
+        steps:
+          - name: Configuração do Site do Resultado do Testes
+            uses: actions/configure-pages@v4
+
+          - name: Download Resultado dos Testes
+            uses: actions/download-artifact@v4
+            with:
+              name: resultado-testes
+              path: results
+
+          - name: Upload dos Resultados
+            uses: actions/upload-pages-artifact@v3
+            with:
+              path: results/
+
+          - name: Subindo Pagina de Resultados dos Testes 🚀
+            id: deployment
+            uses: actions/deploy-pages@v4
+
+            
