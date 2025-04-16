@@ -34,6 +34,8 @@ jobs:
         name: Report Tests 🌐
         runs-on: ubuntu-24.04
         if: always()
+        needs: 
+          - test
     
         permissions:
           contents: read
