@@ -43,7 +43,7 @@ jobs:
           id-token: write
         environment:
           name: github-pages
-          url: https://clestonv.github.io/dojo-robot-2/index.html
+          url: https://clestonv.github.io/robot-basic-tqa14/report.html
 
         steps:
           - name: Configuração do Site do Resultado do Testes
