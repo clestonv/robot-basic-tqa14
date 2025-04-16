@@ -51,7 +51,7 @@ jobs:
             uses: actions/download-artifact@v4
             with:
               name: resultado-testes
-              path: results
+              path: results/
 
           - name: Upload dos Resultados
             uses: actions/upload-pages-artifact@v3
